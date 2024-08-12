@@ -15,7 +15,7 @@
 class BacktrackingSolver : public SudokuSolver {
 
     std::unordered_map<int, std::unordered_set<char>> rowset, colset;
-    std::unordered_map<int, std::unordered_map<int, std::unordered_set<char>>> grid;
+    std::unordered_map<int, std::unordered_map<int, std::unordered_set<char>>> gridset;
     bool found;  // Flag to indicate whether a solution has been found
     long long cnt;
 
@@ -24,7 +24,7 @@ public:
     }
 
     virtual void solve(SudokuBoard &sb) override {
-        rowset.clear(), colset.clear(), grid.clear();
+        resourceClear();
 
         Timer t;
         std::vector<std::vector<char>> board = sb.getOriginalBoard();
@@ -35,7 +35,7 @@ public:
                 if (board[i][j] != '.') {
                     rowset[i].insert(board[i][j]);
                     colset[j].insert(board[i][j]);
-                    grid[i/3][j/3].insert(board[i][j]);
+                    gridset[i/3][j/3].insert(board[i][j]);
                 }
             }
         }
@@ -54,6 +54,10 @@ public:
             // set `hasBoard` as false for signal.
             sb.setHasBoard(false);
         }
+    }
+
+    void resoureClear() {
+        rowset.clear(), colset.clear(), gridset.clear();
     }
 
     void backtrack(std::vector<std::vector<char>>& board, int p) {
@@ -90,12 +94,12 @@ public:
     }
 
     bool isRight(const int &row, const int &col, const char &x) {
-        // Check if the character is already present in the row, column, or grid
+        // Check if the character is already present in the row, column, or gridset
         if (rowset[row].find(x) != rowset[row].end())
             return false;
         if (colset[col].find(x) != colset[col].end())
             return false;
-        if (grid[row/3][col/3].find(x) != grid[row/3][col/3].end())
+        if (gridset[row/3][col/3].find(x) != gridset[row/3][col/3].end())
             return false;
 
         return true;
@@ -104,13 +108,13 @@ public:
     void insert(const int &i, const int &j, const char &x) {
         rowset[i].insert(x);
         colset[j].insert(x);
-        grid[i/3][j/3].insert(x);
+        gridset[i/3][j/3].insert(x);
     }
 
     void erase(const int &i, const int &j, const char &x) {
         rowset[i].erase(x);
         colset[j].erase(x);
-        grid[i/3][j/3].erase(x);
+        gridset[i/3][j/3].erase(x);
     }
 
 };

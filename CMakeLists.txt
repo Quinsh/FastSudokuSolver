@@ -18,7 +18,9 @@ add_executable(SudokuSolver main.cpp
         SudokuBoard.h
         SudokuSolver.h
         BacktrackingSolver.h
-        Timer.h)
+        Timer.h
+        HeuristicsBacktrackingSolver.h
+)
 
 # Link OpenCV libraries
 target_link_libraries(SudokuSolver ${OpenCV_LIBS} ${Tesseract_LIBRARIES})
