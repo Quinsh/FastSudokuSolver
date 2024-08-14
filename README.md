@@ -19,5 +19,4 @@ Just to have some visual interface, I used OpenCV as well.
 
 ---
 
-**Hours Spent: `33 hours`  
 Lines of Code: `1118 lines`**

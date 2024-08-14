@@ -402,7 +402,7 @@ int main() {
         imshow("camera", img_show);
 
         // if (waitKey(50) >= 0) break;
-        waitKey(100);
+        waitKey(50);
     }
 
 

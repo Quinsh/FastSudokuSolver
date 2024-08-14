@@ -68,6 +68,9 @@ class HeuristicsBacktrackingSolver : public SudokuSolver {
     std::unordered_map<int, std::unordered_set<char>> rowset, colset, gridset;
 
 public:
+    HeuristicsBacktrackingSolver() : SudokuSolver() {
+
+    }
     // Function to print candidates for each cell in a formatted Sudoku board way
     void printCandidates() {
         for (int row = 0; row < 9; row++) {
@@ -373,6 +376,8 @@ public:
 
     virtual void solve(SudokuBoard& sb) override {
         resourceClear();
+        auto originalBoardSave = sb.getOriginalBoard();
+
         Timer t;
         auto& board = sb.getOriginalBoard();
 
@@ -387,6 +392,7 @@ public:
         if (!result.empty()) {
             sb.setSolvedBoard(std::move(result));
             sb.setElapsedTime(t.end());
+            sb.setOriginalBoard(std::move(originalBoardSave));
             sb.setAlgorithmUsed("heuristics backtracking");
         }
         else {
