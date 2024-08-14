@@ -2,6 +2,7 @@
 # Sudoku Solver: Heuristics Algorithm and Crook's Algorithm Implementation.
 
 [![Watch the video](screenshot.png)](https://www.youtube.com/watch?v=P1puzjnlF3g)
+(click to see the video)  
 
 Sudoku is a famous NP Complete problem.  
 
