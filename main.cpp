@@ -12,42 +12,72 @@
 #include <tesseract/baseapi.h>
 
 #include "BacktrackingSolver.h"
+#include "HeuristicsBacktrackingSolver.h"
 #include "SudokuSolver.h"
 #include "SudokuBoard.h"
 
 #define BOARD_WIDTH 495;
 #define BOARD_HEIGHT 495; // choose 495x495 because it divides wholly into 9
 
+// #define QUICKTEST 1;
+
 using namespace std;
 
-// int main() {
-//     vector<vector<char>> board = {
-//         {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
-//         {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
-//         {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
-//         {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
-//         {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
-//         {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
-//         {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
-//         {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
-//         {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
-//     };
-//
-//     SudokuBoard sb1(std::move(board));
-//
-//     BacktrackingSolver solver_backtracking;
-//     SudokuSolver &solver = solver_backtracking;
-//
-//     solver.solve(sb1);
-//
-//     // print solved status
-//     SudokuBoard::printBoard(sb1.getSolvedBoard());
-//     sb1.printTime();
-//     sb1.printAlgorithmUsed();
-//
-//     return 0;
-// }
 
+#ifdef QUICKTEST
+// main function for quick testing
+int main() {
+    vector<vector<char>> board = {
+        {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+        {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+        {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+        {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+        {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+        {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+        {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+        {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+        {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+    };
+    std::vector<std::vector<char>> hard = {
+        {'1', '4', '5', '3', '.', '7', '.', '.', '.'},
+        {'8', '.', '.', '.', '.', '.', '.', '2', '.'},
+        {'.', '7', '2', '.', '1', '.', '5', '.', '.'},
+        {'4', '.', '.', '.', '.', '5', '3', '.', '.'},
+        {'.', '1', '.', '.', '7', '.', '.', '.', '6'},
+        {'.', '.', '3', '2', '.', '.', '.', '8', '.'},
+        {'.', '6', '.', '5', '.', '.', '.', '.', '9'},
+        {'.', '.', '4', '.', '.', '.', '.', '3', '.'},
+        {'.', '.', '.', '.', '.', '9', '7', '.', '.'}
+    };
+    std::vector<std::vector<char>> veryhard = {
+        {'.', '.', '5', '3', '.', '.', '.', '.', '.'},
+        {'8', '.', '.', '.', '.', '.', '.', '2', '.'},
+        {'.', '7', '.', '.', '1', '.', '5', '.', '.'},
+        {'.', '.', '.', '.', '.', '.', '.', '.', '9'},
+        {'.', '6', '.', '.', '.', '.', '.', '.', '.'},
+        {'.', '.', '.', '.', '.', '.', '1', '.', '3'},
+        {'1', '.', '.', '.', '4', '.', '.', '.', '2'},
+        {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+        {'.', '.', '.', '6', '.', '7', '.', '.', '.'}
+    };
+
+    SudokuBoard sb1(std::move(veryhard));
+
+    HeuristicsBacktrackingSolver solver_backtracking;
+    SudokuSolver &solver = solver_backtracking;
+
+    solver.solve(sb1);
+
+    // print solved status
+    SudokuBoard::printBoard(sb1.getSolvedBoard());
+    sb1.printTime();
+    sb1.printAlgorithmUsed();
+
+    return 0;
+}
+#endif
+
+#ifndef QUICKTEST
 // convers raw image to canny (just to look more cool)
 void to_canny(cv::Mat& in, cv::Mat& out) {
     cv::Mat grayed, blurred;
@@ -316,7 +346,7 @@ int main() {
     using namespace cv;
     Mat img, img_processed;
     SudokuBoard sb;
-    BacktrackingSolver solver_backtracking; // change here whatever solver you want to use.
+    HeuristicsBacktrackingSolver solver_backtracking; // change here whatever solver you want to use.
     SudokuSolver &solver = solver_backtracking;
     cv::Mat img_solution;
 
@@ -378,3 +408,4 @@ int main() {
 
     return 0;
 }
+#endif

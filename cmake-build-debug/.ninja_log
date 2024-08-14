@@ -1,3 +1,23 @@
 # ninja log v6
-886	976	1723250629696324931	SudokuSolver	fcbd81f405a0f3a6
-6	886	1723250628816211992	CMakeFiles/SudokuSolver.dir/main.cpp.o	a7742ced2fbbd1f
+6	991	1723600888123645569	CMakeFiles/SudokuSolver.dir/main.cpp.o	a7742ced2fbbd1f
+991	1088	1723600889108267872	SudokuSolver	fcbd81f405a0f3a6
+5	920	1723601138090325487	CMakeFiles/SudokuSolver.dir/main.cpp.o	a7742ced2fbbd1f
+921	1004	1723601139006152203	SudokuSolver	fcbd81f405a0f3a6
+10	935	1723601548498604806	CMakeFiles/SudokuSolver.dir/main.cpp.o	a7742ced2fbbd1f
+936	1019	1723601549423970697	SudokuSolver	fcbd81f405a0f3a6
+5	931	1723601803506390533	CMakeFiles/SudokuSolver.dir/main.cpp.o	a7742ced2fbbd1f
+931	1016	1723601804432408877	SudokuSolver	fcbd81f405a0f3a6
+10	963	1723601845362183707	CMakeFiles/SudokuSolver.dir/main.cpp.o	a7742ced2fbbd1f
+963	1045	1723601846315073549	SudokuSolver	fcbd81f405a0f3a6
+5	906	1723601987058082480	CMakeFiles/SudokuSolver.dir/main.cpp.o	a7742ced2fbbd1f
+906	991	1723601987958941230	SudokuSolver	fcbd81f405a0f3a6
+5	921	1723602208253551085	CMakeFiles/SudokuSolver.dir/main.cpp.o	a7742ced2fbbd1f
+921	1006	1723602209168962930	SudokuSolver	fcbd81f405a0f3a6
+6	973	1723602323657760440	CMakeFiles/SudokuSolver.dir/main.cpp.o	a7742ced2fbbd1f
+973	1060	1723602324624112970	SudokuSolver	fcbd81f405a0f3a6
+5	699	1723602341726255465	CMakeFiles/SudokuSolver.dir/main.cpp.o	a7742ced2fbbd1f
+699	729	1723602342419845085	SudokuSolver	fcbd81f405a0f3a6
+5	924	1723602358034152918	CMakeFiles/SudokuSolver.dir/main.cpp.o	a7742ced2fbbd1f
+924	957	1723602358953200527	SudokuSolver	fcbd81f405a0f3a6
+10	813	1723602368280626540	CMakeFiles/SudokuSolver.dir/main.cpp.o	a7742ced2fbbd1f
+813	839	1723602369084071677	SudokuSolver	fcbd81f405a0f3a6

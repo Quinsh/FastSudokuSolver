@@ -56,7 +56,7 @@ public:
         }
     }
 
-    void resoureClear() {
+    virtual void resourceClear() override {
         rowset.clear(), colset.clear(), gridset.clear();
     }
 
