@@ -1,6 +1,8 @@
 
 # Sudoku Solver: Heuristics Algorithm and Crook's Algorithm Implementation.
 
+[![Watch the video](screenshot.png)](https://www.youtube.com/watch?v=P1puzjnlF3g)
+
 Sudoku is a famous NP Complete problem.  
 
 I was solving it with ordinary backtracking, but I was curious of other algorithms, and I felt like
@@ -19,4 +21,4 @@ Just to have some visual interface, I used OpenCV as well.
 
 ---
 
-Lines of Code: `1118 lines`**
+**Lines of Code: `1118 lines`**
